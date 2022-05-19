@@ -1,0 +1,35 @@
+name: docs
+
+on:
+  push:
+    branches:
+      - develop
+      - main
+  pull_request:
+
+jobs:
+  run:
+    continue-on-error: True
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        python-version: [3.8]
+
+    timeout-minutes: 30
+
+    steps:
+    - uses: actions/checkout@master
+    - uses: actions/setup-python@master
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        pip install tox
+        # Install markdown-spellcheck
+        sudo npm install -g markdown-spellcheck
+    - name: Generate Documentation
+      run: tox -e docs
+    - name: Install markdown-spellcheck
+      run: tox -e spell-check
