@@ -110,7 +110,7 @@ class AbstractExperiment(ABC):
 
     def run_experiment(self) -> None:
         """Run a full experiment."""
-        shutil.rmtree(self.config.root_output_dir)
+        shutil.rmtree(self.config.root_output_dir, ignore_errors=True)
         self.config.root_output_dir.mkdir(parents=True)
 
         # set up logging
