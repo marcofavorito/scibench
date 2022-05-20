@@ -1,0 +1,24 @@
+classes:
+  env:
+    frozen_lake:
+      item_id: FrozenLake-v1
+    CliffWalking-v0:
+      item_id: CliffWalking-v0
+  agent:
+    q-learning:
+      item_id: q-learning
+      config:
+        eps: 0.1
+        alpha: 0.1
+    sarsa:
+      item_id: sarsa
+      config:
+        eps: 0.1
+        alpha: 0.1
+
+run:
+  time_steps: 20000
+nb_runs: 10
+nb_jobs: 8
+output_dir: "result"
+experiment_cls: "main:RLExperiment"

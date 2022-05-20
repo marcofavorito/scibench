@@ -19,4 +19,26 @@
 # along with scibench.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-"""Test for the scibench project."""
+"""SciBench main entrypoint."""
+import argparse
+from pathlib import Path
+
+import yaml
+
+from scibench.experiment import AbstractExperiment, configuration_from_dict
+from scibench.helpers import load
+
+if __name__ == "__main__":
+
+    parser = argparse.ArgumentParser("scibench")
+    parser.add_argument(
+        "--config", type=str, required=True, help="Path to configuration file."
+    )
+
+    arguments = parser.parse_args()
+    config = configuration_from_dict(
+        yaml.load(Path(arguments.config).open(), yaml.SafeLoader)
+    )
+    experiment_cls = load(config.experiment_cls)
+    experiment: AbstractExperiment = experiment_cls(config)
+    experiment.run_experiment()

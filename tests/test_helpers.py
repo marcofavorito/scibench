@@ -19,4 +19,26 @@
 # along with scibench.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-"""Test for the scibench project."""
+"""Tests for scibench.helpers module."""
+from scibench.helpers import is_direct_subclass
+
+
+def test_is_direct_subclass() -> None:
+    """Test 'is_direct_subclass'."""
+
+    class X:
+        pass
+
+    class Y(X):
+        pass
+
+    class Z(Y):
+        pass
+
+    class W:
+        pass
+
+    assert not is_direct_subclass(X, X)
+    assert is_direct_subclass(Y, X)
+    assert not is_direct_subclass(Z, X)
+    assert not is_direct_subclass(W, X)

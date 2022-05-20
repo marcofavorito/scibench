@@ -1,27 +1,24 @@
-# -*- coding: utf-8 -*-
 #
-# Copyright 2020-2022 Marco Favorito
+# Copyright 2022 Marco Favorito
 #
 # ------------------------------
 #
-# This file is part of python-project-template.
+# This file is part of scibench.
 #
-# python-project-template is free software: you can redistribute it and/or modify
+# scibench is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 #
-# python-project-template is distributed in the hope that it will be useful,
+# scibench is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Lesser General Public License for more details.
 #
 # You should have received a copy of the GNU Lesser General Public License
-# along with python-project-template.  If not, see <https://www.gnu.org/licenses/>.
+# along with scibench.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-"""Main tests."""
+"""SciBench."""
 
-
-def test_example():
-    """Test example."""
+__version__ = "0.1.0"

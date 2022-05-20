@@ -60,42 +60,42 @@ clean-test: ## remove test and coverage artifacts
 lint-all: black isort lint static bandit safety vulture darglint pylint ## run all linters
 
 lint: ## check style with flake8
-	flake8 python_project_template tests scripts
+	flake8 scibench tests scripts examples
 
 static: ## static type checking with mypy
-	mypy python_project_template tests scripts
+	mypy scibench tests scripts examples
 
 isort: ## sort import statements with isort
-	isort python_project_template tests scripts
+	isort scibench tests scripts examples
 
 isort-check: ## check import statements order with isort
-	isort --check-only python_project_template tests scripts
+	isort --check-only scibench tests scripts examples
 
 black: ## apply black formatting
-	black python_project_template tests scripts
+	black scibench tests scripts examples
 
 black-check: ## check black formatting
-	black --check --verbose python_project_template tests scripts
+	black --check --verbose scibench tests scripts examples
 
 bandit: ## run bandit
-	bandit python_project_template tests scripts
+	bandit scibench tests scripts examples
 
 safety: ## run safety
 	safety check
 
 pylint: ## run pylint
-	pylint python_project_template tests scripts
+	pylint scibench tests scripts examples
 
 vulture: ## run vulture
-	vulture python_project_template scripts/whitelist.py
+	vulture scibench scripts/whitelist.py
 
 darglint: ## run vulture
-	darglint python_project_template
+	darglint scibench
 
 test: ## run tests quickly with the default Python
 	pytest tests --doctest-modules \
-        python_project_template tests/ \
-        --cov=python_project_template \
+        scibench tests/ \
+        --cov=scibench \
         --cov-report=xml \
         --cov-report=html \
         --cov-report=term
@@ -109,13 +109,13 @@ test: ## run tests quickly with the default Python
 # - DIR is the *dotted* path to the module/subpackage whose code coverage needs to be reported.
 #
 # For example, to run the loss function tests (in tests/test_losses)
-# and check the code coverage of the package python_project_template.some_package:
+# and check the code coverage of the package scibench.some_package:
 #
-#     make test-sub tdir=some_package dir=python_project_template.some_package
+#     make test-sub tdir=some_package dir=scibench.some_package
 #
 .PHONY: test-sub
 test-sub:
-	pytest -rfE tests/test_$(tdir) --cov=python_project_template.$(dir) --cov-report=html --cov-report=xml --cov-report=term-missing --cov-report=term  --cov-config=.coveragerc
+	pytest -rfE tests/test_$(tdir) --cov=scibench.$(dir) --cov-report=html --cov-report=xml --cov-report=term-missing --cov-report=term  --cov-config=.coveragerc
 	find . -name ".coverage*" -not -name ".coveragerc" -exec rm -fr "{}" \;
 
 
@@ -123,7 +123,7 @@ test-all: ## run tests on every Python version with tox
 	tox
 
 coverage: ## check code coverage quickly with the default Python
-	coverage run --source python_project_template -m pytest
+	coverage run --source scibench -m pytest
 	coverage report -m
 	coverage html
 	$(BROWSER) htmlcov/index.html

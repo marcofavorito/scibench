@@ -18,5 +18,24 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with scibench.  If not, see <https://www.gnu.org/licenses/>.
 #
+import gym
+from gym.core import Env
 
-"""Test for the scibench project."""
+from scibench.registry import get_registry, register_class
+
+register_class("env", Env, gym.envs.registration.registry)
+
+get_registry("env").register(
+    "Taxi-v3",
+    entry_point="gym.envs.toy_text:TaxiEnv",
+    reward_threshold=8,
+    max_episode_steps=200,
+)
+
+get_registry("env").register(
+    "FrozenLake-v1",
+    entry_point="gym.envs.toy_text:FrozenLakeEnv",
+    kwargs={"map_name": "4x4"},
+    max_episode_steps=100,
+    reward_threshold=0.70,
+)

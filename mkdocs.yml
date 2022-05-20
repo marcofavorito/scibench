@@ -1,6 +1,6 @@
 site_name: My Docs
-repo_name: 'marcofavorito/python-project-template'
-repo_url: https://github.com/marcofavorito/python-project-template
+repo_name: 'marcofavorito/scibench'
+repo_url: https://github.com/marcofavorito/scibench
 
 nav:
 - Home: index.md
@@ -23,7 +23,7 @@ plugins:
             - "!^_"  # exlude all members starting with _
             - "^__init__$"  # but always include __init__ modules and methods
     watch:
-      - python_project_template
+      - scibench
 
 theme:
   name: material

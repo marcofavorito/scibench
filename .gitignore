@@ -836,3 +836,5 @@ Sessionx.vim
 .history
 
 # End of https://www.toptal.com/developers/gitignore/api/tex,vim,tags,latex,linux,macos,python,textmate,sublimetext,pycharm+all,intellij+all,visualstudiocode
+
+examples/rl/result/

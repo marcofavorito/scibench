@@ -1,24 +1,23 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 #
-# Copyright 2020-2022 Marco Favorito
+# Copyright 2022 Marco Favorito
 #
 # ------------------------------
 #
-# This file is part of python-project-template.
+# This file is part of scibench.
 #
-# python-project-template is free software: you can redistribute it and/or modify
+# scibench is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 #
-# python-project-template is distributed in the hope that it will be useful,
+# scibench is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Lesser General Public License for more details.
 #
 # You should have received a copy of the GNU Lesser General Public License
-# along with python-project-template.  If not, see <https://www.gnu.org/licenses/>.
+# along with scibench.  If not, see <https://www.gnu.org/licenses/>.
 #
 
 """
@@ -40,26 +39,25 @@ from pathlib import Path
 
 HEADER_REGEX = re.compile(
     r"""(#!/usr/bin/env python3
-)?# -\*- coding: utf-8 -\*-
-#
-# Copyright 2020-2022 Marco Favorito
+)?#
+# Copyright 2022 Marco Favorito
 #
 # ------------------------------
 #
-# This file is part of python-project-template\.
+# This file is part of scibench\.
 #
-# python-project-template is free software: you can redistribute it and/or modify
+# scibench is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # \(at your option\) any later version\.
 #
-# python-project-template is distributed in the hope that it will be useful,
+# scibench is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE\.  See the
 # GNU Lesser General Public License for more details\.
 #
 # You should have received a copy of the GNU Lesser General Public License
-# along with python-project-template\.  If not, see <https://www\.gnu\.org/licenses/>\.
+# along with scibench\.  If not, see <https://www\.gnu\.org/licenses/>\.
 #
 """,
     re.MULTILINE,
@@ -93,7 +91,7 @@ if __name__ == "__main__":
     python_files = filter(
         lambda x: x not in exclude_files,
         itertools.chain(
-            Path("python-project-template").glob("**/*.py"),
+            Path("scibench").glob("**/*.py"),
             Path("tests").glob("**/*.py"),
             Path("scripts").glob("**/*.py"),
         ),
